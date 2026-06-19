@@ -1,0 +1,41 @@
+# Default configuration for the satellite terrain classification project.
+# All scripts under src/ read their settings from this file via src.config.
+
+seed: 42
+
+data:
+  train_dir: data/train          # one sub-folder per class
+  test_dir: data/test            # flat folder of unlabelled images
+  val_split: 0.2                 # fraction of the training data held out for validation
+  num_classes: 10
+  image_size: 64
+  class_names:
+    - AnnualCrop
+    - Forest
+    - HerbaceousVegetation
+    - Highway
+    - Industrial
+    - Pasture
+    - PermanentCrop
+    - Residential
+    - River
+    - SeaLake
+  # Per-channel normalization stats, computed once on the training split.
+  normalize:
+    mean: [0.3513, 0.3845, 0.4071]
+    std:  [0.2025, 0.1376, 0.1168]
+
+train:
+  epochs: 50
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 12                   # early-stopping patience (epochs without val-acc gain)
+  num_workers: 0
+
+paths:
+  weights: models/best_model.pt
+  history: outputs/history.json
+  metrics: outputs/metrics.json
+  plots_dir: outputs/plots
+  submission: outputs/submission.csv

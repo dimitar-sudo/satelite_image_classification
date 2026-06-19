@@ -1,15 +1,17 @@
-# Datasets (large image files)
-data/
-public_test_data/
+# --------------------------------------------------------------------------- #
+# Datasets — the raw imagery is large and is not version-controlled.
+# See data/README.md for how to obtain it.
+# --------------------------------------------------------------------------- #
+data/train/
+data/test/
 
-# Project files
-project.pdf
+# Note: the trained checkpoint (models/best_model.pt) and the evaluation
+# artifacts (outputs/) ARE committed so the app and README work out of the box.
 
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
-*.pyd
 *.so
 *.egg
 *.egg-info/
@@ -26,20 +28,7 @@ venv/
 env/
 .env/
 
-# Saved models & outputs
-*.h5
-*.hdf5
-*.pkl
-*.pickle
-*.pt
-*.pth
-*.onnx
-*.pb
-checkpoints/
-models/
-outputs/
-
-# Logs
+# Logs & runtime
 *.log
 logs/
 runs/
